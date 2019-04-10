@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" media="screen " href="Public/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="Public/css/yeti.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="Public/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="Public/css/all.min.css">
+    <title>Automated Messaging followup</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0 mb-2">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Automated FollowUp App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="pages.html">Pages</a>
+                        </li>-->
+                    </ul>
+                    <div class="nav navbar-nav navbar-right" id="navbarColor01">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#">Welcome, User</a>
+                        </li> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-6">
+                <nav class="py-1 muted-text bg-light">
+                    <a class="navbar-brand">Messages</a>
+                    <button class="btn btn-primary float-right" data-toggle="modal" data-target="#createmessage">Add Message</button>
+                </nav>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Message Type</th>
+                            <th scope="col">Message Day</th>
+                            <th scope="col">Message Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messageTbody">
+                        <tr>
+                            <td>Call</td>
+                            <td>Monday</td>
+                            <td>3.30pm</td>   
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-md-6">
+                <nav class="py-1 muted-text bg-light">
+                    <a class="navbar-brand">Members</a>
+                    <button class="btn btn-primary float-right" data-toggle="modal" data-target="#createmember">Add Members</button>
+                </nav>
+                <!--Table-->
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                             <th scope="col">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody id="memberTbody">
+                        <tr>
+                            <td>Mark</td>
+                            <td>Bull</td>
+                            <td>2348036576543</td>
+                            <td>mark@mark.com</td>
+                            <td>43 Argile Road</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+        <!-- Modal Popup section -->
+
+        <!-- Modal Popup create Message section -->
+        <div class="modal" tabindex="-1" role="dialog" id="createmessage">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="addMessageForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Create Message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please fill form to create message </p>
+
+                            <div class="form-group">
+                                <label>Message Type</label>
+                                <select class="custom-select" id="type"  required="true">
+                                                      <option selected>Select Message Type</option>
+                                                      <option value="SMS">SMS</option>
+                                                      <option value="Email">Email</option>
+                                                      <option value="Call">Call</option>
+                                                    </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Message Day</label>
+                                <select class="custom-select" id="day"  required="true">
+                                                          <option selected>Select Message Day</option>
+                                                          <option value="Sunday">Sunday</option>
+                                                          <option value="Monday">Monday</option>
+                                                          <option value="Tuesday">Tuesday</option>
+                                                          <option value="Wednesday">Wednesday</option>
+                                                          <option value="Thursday">Thursday</option>
+                                                          <option value="Friday">Friday</option>
+                                                          <option value="Saturday">Saturday</option>
+                                                        </select>
+                            </div>
+
+                            <div class="form-group form-check">
+                                <input type="time" class="form-check-input" id="time"  required="true">
+                                <label class="form-check-label">Published</label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button"  id="btnMessage" onclick="calMessage()"  class="btn btn-primary">Add Member</button>
+                            <!--onclick="addform()"-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Popup create Message section ends -->
+
+
+        <!-- Modal Popup create Member section -->
+        <div class="modal" tabindex="-1" role="dialog" id="createmember">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="addMemberForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Create Member</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please fill form to create Member </p>
+
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" aria-label="Page Title" placeholder="Enter first name" id="fname" class="form-control" required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" aria-label="Page Title" placeholder="Enter Last name " id="lname" class="form-control"  required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="number" aria-label="Page Title" placeholder="Enter Phone number" id="phone" class="form-control"  required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" aria-label="Page Title" placeholder="Enter Email" id="email" class="form-control"  required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" aria-label="Page Title" placeholder="Enter Email" id="address" class="form-control"  required="true">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" id="btnmember" onclick="calMember()" class="btn btn-primary">Add Member</button>
+                            <!--onclick="addform()"-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Popup create Member ends -->
+
+        <!-- Modal Popup section ends -->
+        <h1></h1>
+
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="Public/js/script.js "></script>
+    <script src="Public/js/jquery-3-31.js "></script>
+    <script src="Public/js/bootstrap.js "></script>
+
+</body>
+
+</html>
